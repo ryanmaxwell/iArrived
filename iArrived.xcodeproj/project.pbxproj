@@ -52,6 +52,7 @@
 		946921321633B448003C5688 /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 946921141633B448003C5688 /* MagicalRecord+Setup.m */; };
 		946921331633B448003C5688 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 946921161633B448003C5688 /* MagicalRecord+ShorthandSupport.m */; };
 		946921341633B448003C5688 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 946921181633B448003C5688 /* MagicalRecord.m */; };
+		9469214D16341172003C5688 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9469214C16341172003C5688 /* Growl.framework */; };
 		9493168D14AD4D2000DA60F0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9493168C14AD4D2000DA60F0 /* Cocoa.framework */; };
 		949DE2CA14C02EEC00A3F839 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949DE2C914C02EEC00A3F839 /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		949E4A5E14BC4D0C006B579A /* i_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E4A5D14BC4D0C006B579A /* i_icon.png */; };
@@ -64,8 +65,6 @@
 		94CCDC1714CA34820068E14F /* IATreeMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CCDC1614CA34820068E14F /* IATreeMember.m */; };
 		94DD24FD14CA41430084DAA6 /* iArrived.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94DD24FB14CA41430084DAA6 /* iArrived.xcdatamodeld */; };
 		94E0540614B85AC300AD6E5B /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 94E0540514B85AC300AD6E5B /* Growl Registration Ticket.growlRegDict */; };
-		94E0540914B85C5700AD6E5B /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E0540814B85C5700AD6E5B /* Growl.framework */; };
-		94E0540B14B85D3F00AD6E5B /* Growl.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 94E0540814B85C5700AD6E5B /* Growl.framework */; };
 		94EDEEE414BB16DF00EBC453 /* IAMouseDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EDEEE314BB16DF00EBC453 /* IAMouseDownTextField.m */; };
 		94F2EBF514C82D7B003653CD /* IADevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F2EBF214C82D7B003653CD /* IADevice.m */; };
 		94F2EBF614C82D7B003653CD /* IAGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F2EBF414C82D7B003653CD /* IAGroup.m */; };
@@ -79,7 +78,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				94E0540B14B85D3F00AD6E5B /* Growl.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +170,7 @@
 		946921181633B448003C5688 /* MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalRecord.m; sourceTree = "<group>"; };
 		946921191633B448003C5688 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		9469211A1633B448003C5688 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
+		9469214C16341172003C5688 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = iArrived/Frameworks/Growl.framework; sourceTree = "<group>"; };
 		9493168814AD4D2000DA60F0 /* iArrived.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iArrived.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9493168C14AD4D2000DA60F0 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9493168F14AD4D2000DA60F0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -196,7 +195,6 @@
 		94CCDC1614CA34820068E14F /* IATreeMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATreeMember.m; sourceTree = "<group>"; };
 		94DD24FC14CA41430084DAA6 /* iArrived.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iArrived.xcdatamodel; sourceTree = "<group>"; };
 		94E0540514B85AC300AD6E5B /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
-		94E0540814B85C5700AD6E5B /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		94EDEEE214BB16DF00EBC453 /* IAMouseDownTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAMouseDownTextField.h; sourceTree = "<group>"; };
 		94EDEEE314BB16DF00EBC453 /* IAMouseDownTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAMouseDownTextField.m; sourceTree = "<group>"; };
 		94F2EBF114C82D7B003653CD /* IADevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IADevice.h; sourceTree = "<group>"; };
@@ -213,7 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9493168D14AD4D2000DA60F0 /* Cocoa.framework in Frameworks */,
-				94E0540914B85C5700AD6E5B /* Growl.framework in Frameworks */,
+				9469214D16341172003C5688 /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +441,7 @@
 		9493168B14AD4D2000DA60F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				94E0540814B85C5700AD6E5B /* Growl.framework */,
+				9469214C16341172003C5688 /* Growl.framework */,
 				9493168C14AD4D2000DA60F0 /* Cocoa.framework */,
 				9493168E14AD4D2000DA60F0 /* Other Frameworks */,
 			);
@@ -732,6 +730,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/iArrived/Libraries\"",
+					"\"$(SRCROOT)/iArrived/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArrived/iArrived-Prefix.pch";
@@ -748,6 +748,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/iArrived/Libraries\"",
+					"\"$(SRCROOT)/iArrived/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArrived/iArrived-Prefix.pch";
