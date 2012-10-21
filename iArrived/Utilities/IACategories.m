@@ -9,43 +9,37 @@
 #import "IACategories.h"
 
 #import <netinet/in.h>
-#include <arpa/inet.h>
+#import <arpa/inet.h>
 
-@implementation NSData (Additions)
+@implementation NSData (NetworkAddressingAdditions)
 
 - (BOOL)isIPv4Address {
-    struct sockaddr *addr = (struct sockaddr *)[self bytes];
+    struct sockaddr *addr = (struct sockaddr *)self.bytes;
     return (addr->sa_family == AF_INET) ? YES : NO;
 }
 
 - (BOOL)isIPv6Address {
-    struct sockaddr *addr = (struct sockaddr *)[self bytes];
+    struct sockaddr *addr = (struct sockaddr *)self.bytes;
     return (addr->sa_family == AF_INET6) ? YES : NO;
 }
 
 - (int)port {
-    int port;
-    struct sockaddr *addr = (struct sockaddr *)[self bytes];
+    struct sockaddr *addr = (struct sockaddr *)self.bytes;
     
-    if([self isIPv4Address]) {
+    if(self.isIPv4Address) {
         uint16_t netshort = ((struct sockaddr_in *)addr)->sin_port;
-        port = ntohs(netshort);
+        return ntohs(netshort);
     }
-    else if([self isIPv6Address]) {
+    else if(self.isIPv6Address) {
         uint16_t netshort = ((struct sockaddr_in6 *)addr)->sin6_port;
-        port = ntohs(netshort);
-    }
-    else {
-        // The family is neither IPv4 nor IPv6. Can't handle.
-        port = 0;
+        return ntohs(netshort);
     }
     
-    return port;
+    return 0;
 }
 
-
 - (NSString *)address {
-    struct sockaddr *addr = (struct sockaddr *)[self bytes];
+    struct sockaddr *addr = (struct sockaddr *)self.bytes;
     
     if([self isIPv4Address]) {
         struct sockaddr_in *addr4 = (struct sockaddr_in *)addr;

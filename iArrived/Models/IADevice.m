@@ -183,9 +183,9 @@
     self.isResolvedValue = YES;
     
     for (NSData *socketData in [sender addresses]) {
-        if ([socketData isIPv4Address]) {
+        if (socketData.isIPv4Address) {
             self.ipv4Address = [socketData address];
-        } else if ([socketData isIPv6Address]) {
+        } else if (socketData.isIPv6Address) {
             self.ipv6Address = [socketData address];        
         }
     }

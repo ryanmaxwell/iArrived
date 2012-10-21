@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSData (RMAdditions)
+@interface NSData (NetworkAddressingAdditions)
 
-- (int)port;
-- (NSString *)address;
-- (BOOL)isIPv4Address;
-- (BOOL)isIPv6Address;
+@property (nonatomic, readonly) int port;
+@property (nonatomic, readonly) NSString *address;
+@property (nonatomic, readonly) BOOL isIPv4Address;
+@property (nonatomic, readonly) BOOL isIPv6Address;
 
 @end
