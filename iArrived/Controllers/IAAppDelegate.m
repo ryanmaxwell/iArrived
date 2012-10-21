@@ -12,10 +12,11 @@
 #import "IANetServiceManager.h"
 #import "IADevice.h"
 #import "IAGroup.h"
+#import "IAStatusItemView.h"
 
 #import <Growl/Growl.h>
 
-@interface IAAppDelegate () <NSPopoverDelegate, GrowlApplicationBridgeDelegate>
+@interface IAAppDelegate () <NSPopoverDelegate, GrowlApplicationBridgeDelegate, IAStatusItemViewDelegate>
 @property (nonatomic, strong) IAPopoverContentViewController *popoverContentViewController;
 @property (nonatomic, strong) NSStatusItem *statusItem;
 @property (nonatomic, strong) NSPopover *popover;
@@ -132,14 +133,14 @@
 }
          
 - (void)showSettingsWindow {
-    if (![self.settingsWindowController.window isKeyWindow]) {
+    if (!self.settingsWindowController.window.isKeyWindow) {
         [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
         [self.settingsWindowController.window makeKeyAndOrderFront:nil];
     }
 }
 
 - (void)toggleSettingsWindow {
-    if ([self.settingsWindowController.window isVisible]) {
+    if (self.settingsWindowController.window.isVisible) {
         [self.settingsWindowController.window close];
     } else {
         [self showSettingsWindow];
@@ -149,7 +150,7 @@
 #pragma mark - StatusBarViewDelegate
 
 - (void)statusItemViewClicked {
-    if([self.popover isShown]) {
+    if(self.popover.isShown) {
         self.active = NO;
         [self.popover performClose:self];
     } else {

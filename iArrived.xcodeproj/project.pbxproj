@@ -549,7 +549,7 @@
 		9493167F14AD4D1F00DA60F0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Cactuslab;
 			};
 			buildConfigurationList = 9493168214AD4D1F00DA60F0 /* Build configuration list for PBXProject "iArrived" */;
@@ -728,6 +728,7 @@
 		949316AA14AD4D2000DA60F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -743,6 +744,7 @@
 		949316AB14AD4D2000DA60F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

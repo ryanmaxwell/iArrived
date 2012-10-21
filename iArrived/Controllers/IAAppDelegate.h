@@ -7,12 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "IAStatusItemView.h"
 @class IASettingsWindowController;
 
-@interface IAAppDelegate : NSObject <NSApplicationDelegate, IAStatusItemViewDelegate>
+@interface IAAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (nonatomic, weak) IBOutlet NSView *windowView;
 @property (nonatomic, assign, getter = isActive) BOOL active;
 
 @property (nonatomic, strong) IASettingsWindowController *settingsWindowController;

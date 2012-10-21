@@ -85,14 +85,18 @@
 }
 
 - (IBAction)toggleAdvanced:(id)sender {
-    NSInteger advancedViewHeight = 100;
-    NSInteger deltaY = (_isAdvancedExpanded) ? -advancedViewHeight : advancedViewHeight;
-    _isAdvancedExpanded = !_isAdvancedExpanded;
-    
-    NSRect oldFrame = self.window.frame;
-    NSRect newFrame = NSMakeRect(oldFrame.origin.x, oldFrame.origin.y - deltaY, oldFrame.size.width, oldFrame.size.height + deltaY);
-    
-    [self.window setFrame:newFrame display:YES animate:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        /* perform window resize async so that disclosure triangle can do flip animation at same time */
+        
+        static const NSInteger advancedViewHeight = 100;
+        NSInteger deltaY = (_isAdvancedExpanded) ? -advancedViewHeight : advancedViewHeight;
+        _isAdvancedExpanded = !_isAdvancedExpanded;
+        
+        NSRect oldFrame = self.window.frame;
+        NSRect newFrame = NSMakeRect(oldFrame.origin.x, oldFrame.origin.y - deltaY, oldFrame.size.width, oldFrame.size.height + deltaY);
+        
+        [self.window setFrame:newFrame display:YES animate:YES];
+    });
 }
 
 - (void)selectDevice:(IADevice *)device {

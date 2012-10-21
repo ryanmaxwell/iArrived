@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 @class IADevice;
 
-@interface IASettingsWindowController : NSWindowController <NSOutlineViewDelegate, NSOutlineViewDataSource>
+@interface IASettingsWindowController : NSWindowController <NSOutlineViewDelegate, NSOutlineViewDataSource, NSSplitViewDelegate>
 
 @property (nonatomic, weak) IBOutlet NSTreeController *treeController;
 

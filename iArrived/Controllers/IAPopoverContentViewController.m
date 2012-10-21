@@ -52,7 +52,7 @@
     
     if (object == self.arrayController && [keyPath isEqualToString:@"arrangedObjects.@count"]) {
         NSInteger numberOfRows = [self.tableView numberOfRows]; 
-        // TODO should be the NSKeyValueObservingOptionNew but I can't figure that NSValue shit out
+        // TODO: should be the NSKeyValueObservingOptionNew but I can't figure that NSValue shit out
         
         NSDictionary *userInfo = @{@"numberOfRows": @(numberOfRows)};
         
