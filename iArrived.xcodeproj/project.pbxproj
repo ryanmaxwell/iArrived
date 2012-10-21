@@ -53,6 +53,7 @@
 		946921331633B448003C5688 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 946921161633B448003C5688 /* MagicalRecord+ShorthandSupport.m */; };
 		946921341633B448003C5688 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 946921181633B448003C5688 /* MagicalRecord.m */; };
 		9469214D16341172003C5688 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9469214C16341172003C5688 /* Growl.framework */; };
+		9469214E16341D54003C5688 /* Growl.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 9469214C16341172003C5688 /* Growl.framework */; };
 		9493168D14AD4D2000DA60F0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9493168C14AD4D2000DA60F0 /* Cocoa.framework */; };
 		949DE2CA14C02EEC00A3F839 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949DE2C914C02EEC00A3F839 /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		949E4A5E14BC4D0C006B579A /* i_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 949E4A5D14BC4D0C006B579A /* i_icon.png */; };
@@ -78,6 +79,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9469214E16341D54003C5688 /* Growl.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
