@@ -82,7 +82,6 @@
     [MagicalRecord setupCoreDataStack];
     
     _settingsWindowController = [[IASettingsWindowController alloc] initWithWindowNibName:@"IASettingsWindowController"];
-    _settingsWindowController.window.isVisible = YES;
 }
 
 

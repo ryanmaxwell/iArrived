@@ -19,7 +19,6 @@
 - (id)initWithWindowNibName:(NSString *)windowNibName {
     self = [super initWithWindowNibName:windowNibName];
     if (self) {
-        _isAdvancedExpanded = NO;
 //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceDidMoveGroup:) name:@"DeviceDidMoveGroup" object:nil];
     }
     return self;
