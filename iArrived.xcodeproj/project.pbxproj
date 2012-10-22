@@ -539,7 +539,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/iArrived/Libraries\"",
 					"\"$(SRCROOT)/iArrived/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -558,7 +557,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/iArrived/Libraries\"",
 					"\"$(SRCROOT)/iArrived/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
