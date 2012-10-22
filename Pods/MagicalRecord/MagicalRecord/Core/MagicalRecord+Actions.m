@@ -1,5 +1,6 @@
 //
-//  MagicalRecord+Actions.m
+//  ARCoreDataAction.m
+//  Freshpod
 //
 //  Created by Saul Mora on 2/24/11.
 //  Copyright 2011 Magical Panda Software. All rights reserved.
@@ -17,7 +18,6 @@ dispatch_queue_t action_queue(void)
     {
         background_action_queue = dispatch_queue_create("com.magicalpanda.magicalrecord.actionQueue", DISPATCH_QUEUE_SERIAL);
     }
-
     return background_action_queue;
 }
 
@@ -26,7 +26,7 @@ void reset_action_queue(void)
 {
     if (background_action_queue != NULL)
     {
-        MRDispatchQueueRelease(background_action_queue);
+        dispatch_release(background_action_queue);
         background_action_queue = NULL;
     }
 }
@@ -38,7 +38,7 @@ void reset_action_queue(void)
     dispatch_async(action_queue(), ^{
         block(localContext);
         
-        [localContext MR_saveNestedContextsErrorHandler:errorHandler completion:completion];
+        [localContext MR_saveInBackgroundErrorHandler:errorHandler completion:completion];
     });
 }
 
@@ -71,7 +71,7 @@ void reset_action_queue(void)
     
     if (completion)
     {
-        dispatch_async(dispatch_get_main_queue(), completion);
+        completion();
     }
 }
 

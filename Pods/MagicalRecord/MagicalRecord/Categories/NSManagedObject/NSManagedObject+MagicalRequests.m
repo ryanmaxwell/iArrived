@@ -92,10 +92,12 @@
 
 + (NSFetchRequest *) MR_requestAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending inContext:(NSManagedObjectContext *)context
 {
-	return [self MR_requestAllSortedBy:sortTerm
-                             ascending:ascending
-                         withPredicate:nil 
-                             inContext:[NSManagedObjectContext MR_contextForCurrentThread]];
+	NSFetchRequest *request = [self MR_requestAllInContext:context];
+	
+	NSSortDescriptor *sortBy = [[NSSortDescriptor alloc] initWithKey:sortTerm ascending:ascending];
+	[request setSortDescriptors:[NSArray arrayWithObject:sortBy]];
+	
+	return request;
 }
 
 + (NSFetchRequest *) MR_requestAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending
@@ -108,10 +110,7 @@
 + (NSFetchRequest *) MR_requestAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending withPredicate:(NSPredicate *)searchTerm inContext:(NSManagedObjectContext *)context
 {
 	NSFetchRequest *request = [self MR_requestAllInContext:context];
-	if (searchTerm)
-    {
-        [request setPredicate:searchTerm];
-    }
+	[request setPredicate:searchTerm];
 	[request setFetchBatchSize:[self MR_defaultBatchSize]];
 	
     NSMutableArray* sortDescriptors = [[NSMutableArray alloc] init];

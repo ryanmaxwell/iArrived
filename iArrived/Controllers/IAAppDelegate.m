@@ -78,8 +78,7 @@
 }
 
 - (void)awakeFromNib {
-    
-    [MagicalRecord setupCoreDataStack];
+    [MagicalRecord setupAutoMigratingCoreDataStack];
     
     _settingsWindowController = [[IASettingsWindowController alloc] initWithWindowNibName:@"IASettingsWindowController"];
 }

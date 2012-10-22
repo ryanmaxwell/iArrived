@@ -1,3 +1,3 @@
 platform :osx, '10.7'
 
-pod 'MagicalRecord'
+pod 'MagicalRecord', '2.0.3'

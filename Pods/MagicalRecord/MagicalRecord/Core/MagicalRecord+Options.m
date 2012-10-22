@@ -10,7 +10,6 @@
 
 static BOOL shouldAutoCreateManagedObjectModel_;
 static BOOL shouldAutoCreateDefaultPersistentStoreCoordinator_;
-static BOOL shouldDeleteStoreOnModelMismatch_;
 
 @implementation MagicalRecord (Options)
 
@@ -34,16 +33,6 @@ static BOOL shouldDeleteStoreOnModelMismatch_;
 + (void) setShouldAutoCreateDefaultPersistentStoreCoordinator:(BOOL)shouldAutoCreate;
 {
     shouldAutoCreateDefaultPersistentStoreCoordinator_ = shouldAutoCreate;
-}
-
-+ (BOOL) shouldDeleteStoreOnModelMismatch;
-{
-    return shouldDeleteStoreOnModelMismatch_;
-}
-
-+ (void) setShouldDeleteStoreOnModelMismatch:(BOOL)shouldDeleteStoreOnModelMismatch
-{
-    shouldDeleteStoreOnModelMismatch_ = shouldDeleteStoreOnModelMismatch;
 }
 
 @end

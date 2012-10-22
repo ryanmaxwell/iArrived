@@ -10,7 +10,6 @@
 @interface MagicalRecord (Internal)
 
 + (void) cleanUpStack;
-+ (void) cleanUpErrorHanding;
 
 @end
 
@@ -91,11 +90,6 @@ void reset_action_queue(void);
 #endif
         [self setShouldAutoCreateManagedObjectModel:YES];
         [self setShouldAutoCreateDefaultPersistentStoreCoordinator:NO];
-#ifdef DEBUG
-        [self setShouldDeleteStoreOnModelMismatch:YES];
-#else
-        [self setShouldDeleteStoreOnModelMismatch:NO];
-#endif
     }
 }
 

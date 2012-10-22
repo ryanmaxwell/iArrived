@@ -17,4 +17,6 @@
 + (SEL) errorHandlerAction;
 + (id) errorHandlerTarget;
 
++ (void) cleanUpErrorHanding;
+
 @end

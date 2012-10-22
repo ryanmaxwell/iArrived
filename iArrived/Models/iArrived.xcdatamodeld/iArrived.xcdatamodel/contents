@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Device" representedClassName="IADevice" parentEntity="TreeMember" syncable="YES">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="IADevice" representedClassName="IADevice" parentEntity="IATreeMember" syncable="YES">
         <attribute name="growlWhenArrives" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="growlWhenLeaves" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="hostName" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,18 +21,18 @@
         <attribute name="serviceName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="serviceType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Group" representedClassName="IAGroup" parentEntity="TreeMember" syncable="YES">
+    <entity name="IAGroup" representedClassName="IAGroup" parentEntity="IATreeMember" syncable="YES">
         <attribute name="groupType" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="TreeMember" representedClassName="IATreeMember" isAbstract="YES" syncable="YES">
+    <entity name="IATreeMember" representedClassName="IATreeMember" isAbstract="YES" syncable="YES">
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isLeaf" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TreeMember" inverseName="parents" inverseEntity="TreeMember" syncable="YES"/>
-        <relationship name="parents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TreeMember" inverseName="children" inverseEntity="TreeMember" syncable="YES"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IATreeMember" inverseName="parents" inverseEntity="IATreeMember" syncable="YES"/>
+        <relationship name="parents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IATreeMember" inverseName="children" inverseEntity="IATreeMember" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Device" positionX="-11799" positionY="-1278" width="128" height="330"/>
-        <element name="Group" positionX="-12053" positionY="-1161" width="128" height="60"/>
-        <element name="TreeMember" positionX="-11952" positionY="-1449" width="128" height="105"/>
+        <element name="IADevice" positionX="-11799" positionY="-1278" width="128" height="328"/>
+        <element name="IAGroup" positionX="-12053" positionY="-1161" width="128" height="58"/>
+        <element name="IATreeMember" positionX="-11952" positionY="-1449" width="128" height="103"/>
     </elements>
 </model>

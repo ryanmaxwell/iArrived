@@ -20,16 +20,16 @@ const struct IAGroupFetchedProperties IAGroupFetchedProperties = {
 
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"Group" inManagedObjectContext:moc_];
+	return [NSEntityDescription insertNewObjectForEntityForName:@"IAGroup" inManagedObjectContext:moc_];
 }
 
 + (NSString*)entityName {
-	return @"Group";
+	return @"IAGroup";
 }
 
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"Group" inManagedObjectContext:moc_];
+	return [NSEntityDescription entityForName:@"IAGroup" inManagedObjectContext:moc_];
 }
 
 - (IAGroupID*)objectID {

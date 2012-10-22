@@ -38,16 +38,16 @@ const struct IADeviceFetchedProperties IADeviceFetchedProperties = {
 
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:moc_];
+	return [NSEntityDescription insertNewObjectForEntityForName:@"IADevice" inManagedObjectContext:moc_];
 }
 
 + (NSString*)entityName {
-	return @"Device";
+	return @"IADevice";
 }
 
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"Device" inManagedObjectContext:moc_];
+	return [NSEntityDescription entityForName:@"IADevice" inManagedObjectContext:moc_];
 }
 
 - (IADeviceID*)objectID {

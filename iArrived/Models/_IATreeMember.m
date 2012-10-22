@@ -23,16 +23,16 @@ const struct IATreeMemberFetchedProperties IATreeMemberFetchedProperties = {
 
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"TreeMember" inManagedObjectContext:moc_];
+	return [NSEntityDescription insertNewObjectForEntityForName:@"IATreeMember" inManagedObjectContext:moc_];
 }
 
 + (NSString*)entityName {
-	return @"TreeMember";
+	return @"IATreeMember";
 }
 
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"TreeMember" inManagedObjectContext:moc_];
+	return [NSEntityDescription entityForName:@"IATreeMember" inManagedObjectContext:moc_];
 }
 
 - (IATreeMemberID*)objectID {
