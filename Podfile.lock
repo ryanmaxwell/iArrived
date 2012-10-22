@@ -2,10 +2,10 @@
 PODS: 
 - MagicalRecord (2.0.3)
 
-DEPENDENCIES: 
-- MagicalRecord (= 2.0.3)
+SPEC CHECKSUMS: 
+  MagicalRecord: bab76c152f93668a25cf1b697e1f469f4c3bf691
 
 COCOAPODS: 0.15.2
 
-SPEC CHECKSUMS: 
-  MagicalRecord: bab76c152f93668a25cf1b697e1f469f4c3bf691
+DEPENDENCIES: 
+- MagicalRecord (= 2.0.3)
