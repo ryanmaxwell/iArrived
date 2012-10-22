@@ -1,9 +1,9 @@
 #import "_IAGroup.h"
 
-typedef enum  {
+typedef NS_ENUM(NSInteger, IAGroupType) {
     IAGroupTypeFound = 1,
-    IAGroupTypeNotFound = 2
-} IAGroupType;
+    IAGroupTypeNotFound
+};
 
 @interface IAGroup : _IAGroup
 
