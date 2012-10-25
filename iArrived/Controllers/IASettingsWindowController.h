@@ -27,4 +27,6 @@
 
 - (void)selectDevice:(IADevice *)device;
 
+- (BOOL)userNotificationCenterAvailable;
+
 @end

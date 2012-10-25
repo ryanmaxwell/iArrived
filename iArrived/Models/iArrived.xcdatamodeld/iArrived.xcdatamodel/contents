@@ -14,6 +14,8 @@
         <attribute name="isResolved" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastFoundDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="macAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notificationWhenArrives" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="notificationWhenLeaves" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="outroLastPlayedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="outroTrackArtist" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="outroTrackName" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,7 +33,7 @@
         <relationship name="parents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IATreeMember" inverseName="children" inverseEntity="IATreeMember" syncable="YES"/>
     </entity>
     <elements>
-        <element name="IADevice" positionX="-11799" positionY="-1278" width="128" height="328"/>
+        <element name="IADevice" positionX="-11799" positionY="-1278" width="128" height="360"/>
         <element name="IAGroup" positionX="-12053" positionY="-1161" width="128" height="58"/>
         <element name="IATreeMember" positionX="-11952" positionY="-1449" width="128" height="103"/>
     </elements>

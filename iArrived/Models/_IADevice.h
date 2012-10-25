@@ -18,6 +18,8 @@ extern const struct IADeviceAttributes {
 	__unsafe_unretained NSString *isResolved;
 	__unsafe_unretained NSString *lastFoundDate;
 	__unsafe_unretained NSString *macAddress;
+	__unsafe_unretained NSString *notificationWhenArrives;
+	__unsafe_unretained NSString *notificationWhenLeaves;
 	__unsafe_unretained NSString *outroLastPlayedDate;
 	__unsafe_unretained NSString *outroTrackArtist;
 	__unsafe_unretained NSString *outroTrackName;
@@ -31,6 +33,8 @@ extern const struct IADeviceRelationships {
 
 extern const struct IADeviceFetchedProperties {
 } IADeviceFetchedProperties;
+
+
 
 
 
@@ -189,6 +193,30 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* notificationWhenArrives;
+
+
+@property BOOL notificationWhenArrivesValue;
+- (BOOL)notificationWhenArrivesValue;
+- (void)setNotificationWhenArrivesValue:(BOOL)value_;
+
+//- (BOOL)validateNotificationWhenArrives:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSNumber* notificationWhenLeaves;
+
+
+@property BOOL notificationWhenLeavesValue;
+- (BOOL)notificationWhenLeavesValue;
+- (void)setNotificationWhenLeavesValue:(BOOL)value_;
+
+//- (BOOL)validateNotificationWhenLeaves:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, strong) NSDate* outroLastPlayedDate;
 
 
@@ -337,6 +365,24 @@ extern const struct IADeviceFetchedProperties {
 
 - (NSString*)primitiveMacAddress;
 - (void)setPrimitiveMacAddress:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveNotificationWhenArrives;
+- (void)setPrimitiveNotificationWhenArrives:(NSNumber*)value;
+
+- (BOOL)primitiveNotificationWhenArrivesValue;
+- (void)setPrimitiveNotificationWhenArrivesValue:(BOOL)value_;
+
+
+
+
+- (NSNumber*)primitiveNotificationWhenLeaves;
+- (void)setPrimitiveNotificationWhenLeaves:(NSNumber*)value;
+
+- (BOOL)primitiveNotificationWhenLeavesValue;
+- (void)setPrimitiveNotificationWhenLeavesValue:(BOOL)value_;
 
 
 

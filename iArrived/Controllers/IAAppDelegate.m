@@ -16,7 +16,7 @@
 
 #import <Growl/Growl.h>
 
-@interface IAAppDelegate () <NSPopoverDelegate, GrowlApplicationBridgeDelegate, IAStatusItemViewDelegate>
+@interface IAAppDelegate () <NSPopoverDelegate, GrowlApplicationBridgeDelegate, IAStatusItemViewDelegate, NSUserNotificationCenterDelegate>
 @property (nonatomic, strong) IAPopoverContentViewController *popoverContentViewController;
 @property (nonatomic, strong) NSStatusItem *statusItem;
 @property (nonatomic, strong) NSPopover *popover;
@@ -50,7 +50,7 @@
     IAGroup *notFoundDevices = [IAGroup notFoundDevicesGroup];
     [notFoundDevices addChildren:[NSSet setWithArray:[IADevice findAll]]];
     
-    [[NSManagedObjectContext defaultContext] save];
+    [NSManagedObjectContext.defaultContext save];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -58,23 +58,27 @@
     [self registerGrowl];
     [self groupDevices];
     
-    [[IANetServiceManager sharedNetServiceManager] startSearchingForServices];
+    [IANetServiceManager.sharedNetServiceManager startSearchingForServices];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self 
+    [NSNotificationCenter.defaultCenter addObserver:self
                                              selector:@selector(popoverTableViewDidUpdateNumberOfRows:) 
                                                  name:@"PopoverTableViewDidUpdateNumberOfRows" 
                                                object:nil];
+    
+    if (NSClassFromString(@"NSUserNotificationCenter") != nil) {
+        NSUserNotificationCenter.defaultUserNotificationCenter.delegate = self;
+    }
 }
 
 /**
  Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
  */
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window {
-    return [[NSManagedObjectContext defaultContext] undoManager];
+    return NSManagedObjectContext.defaultContext.undoManager;
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (void)awakeFromNib {
@@ -142,6 +146,25 @@
         [self.settingsWindowController.window close];
     } else {
         [self showSettingsWindow];
+    }
+}
+
+#pragma mark - NSUserNotificationCenterDelegate
+
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification {
+    return YES;
+}
+
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification {
+    NSDictionary *contextDictionary = notification.userInfo;
+    
+    IADevice *device = [IADevice deviceOfType:contextDictionary[@"serviceType"]
+                                     inDomain:contextDictionary[@"serviceDomain"]
+                                     withName:contextDictionary[@"serviceName"]];
+    
+    if (device) {
+        [self showSettingsWindow];
+        [self.settingsWindowController selectDevice:device];
     }
 }
 

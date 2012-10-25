@@ -43,6 +43,10 @@
 //    }
 //}
 
+- (BOOL)userNotificationCenterAvailable {
+    return (NSClassFromString(@"NSUserNotificationCenter")!=nil);
+}
+
 - (void)expandAndDeselectNodes {
     // Expand all the root items; disable the expansion animation that normally happens
     [NSAnimationContext beginGrouping];

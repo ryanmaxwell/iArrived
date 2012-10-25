@@ -5,7 +5,7 @@
 
 #define kAddressResolutionTimeout       5.0
 
-@implementation IADevice
+@implementation IADevice 
 @synthesize netService = _netService;
 
 + (IADevice *)deviceOfType:(NSString *)serviceType inDomain:(NSString *)domainName withName:(NSString *)serviceName {
@@ -86,9 +86,11 @@
     [self setPrimitiveIsFound:isFound];
     [self didChangeValueForKey:IADeviceAttributes.isFound];
     
-    NSDictionary *contextDictionary = @{@"serviceName": self.serviceName,
+    NSDictionary *contextDictionary = @{
+    @"serviceName": self.serviceName,
     @"serviceType": self.serviceType,
-    @"serviceDomain": self.serviceDomain};
+    @"serviceDomain": self.serviceDomain
+    };
     
     if (isFound.boolValue) {
         [[IAGroup foundDevicesGroup] addChildrenObject:self];
@@ -96,22 +98,30 @@
         NSNotification *moveNotification = [NSNotification notificationWithName:@"DeviceDidMoveGroup"
                                                                          object:self
                                                                        userInfo:@{@"NewGroupKey": @"FOUND",
-                                            @"OldGroupKey": @"NOT FOUND"}];
+                                                                                @"OldGroupKey": @"NOT FOUND"}];
         [[NSNotificationCenter defaultCenter] postNotification:moveNotification];
         
         self.lastFoundDate = [NSDate date];
         
         if (self.isFollowedValue) {
+            NSString *notificationTitle = @"Device Arrived";
+            NSString *notificationText = [NSString stringWithFormat:@"%@ was found on the network", self.displayName];
+            
             if (self.growlWhenArrivesValue) {
-                NSString *deviceName = self.displayName ? self.displayName : self.serviceName;
-                
-                [GrowlApplicationBridge notifyWithTitle:@"Device Arrived"
-                                            description:[NSString stringWithFormat:@"%@ was found on the network", deviceName]
+                [GrowlApplicationBridge notifyWithTitle:notificationTitle
+                                            description:notificationText
                                        notificationName:@"deviceWasFound"
                                                iconData:nil
                                                priority:0
                                                isSticky:NO
                                            clickContext:contextDictionary];
+            }
+            if (self.notificationWhenArrivesValue && (NSClassFromString(@"NSUserNotificationCenter") != nil)) {
+                NSUserNotification *notification = [[NSUserNotification alloc] init];
+                notification.title = notificationTitle;
+                notification.informativeText = notificationText;
+                notification.userInfo = contextDictionary;
+                [NSUserNotificationCenter.defaultUserNotificationCenter deliverNotification:notification];
             }
             
             if (self.isIntroTrackDefined) {
@@ -140,16 +150,25 @@
         [[NSNotificationCenter defaultCenter] postNotification:moveNotification];
         
         if (self.isFollowedValue) {
+            NSString *notificationTitle = @"Device Left";
+            NSString *notificationText = [NSString stringWithFormat:@"%@ was found on the network", self.displayName];
+            
             if (self.growlWhenLeavesValue) {
-                NSString *deviceName = self.displayName ? self.displayName : self.serviceName;
-                
-                [GrowlApplicationBridge notifyWithTitle:@"Device Left"
-                                            description:[NSString stringWithFormat:@"%@ left the network", deviceName]
+                [GrowlApplicationBridge notifyWithTitle:notificationTitle
+                                            description:notificationText
                                        notificationName:@"deviceWasUnfound"
                                                iconData:nil
                                                priority:0
                                                isSticky:NO
                                            clickContext:contextDictionary];
+            }
+            
+            if (self.notificationWhenLeavesValue && (NSClassFromString(@"NSUserNotificationCenter") != nil)) {
+                NSUserNotification *notification = [[NSUserNotification alloc] init];
+                notification.title = notificationTitle;
+                notification.informativeText = notificationText;
+                notification.userInfo = contextDictionary;
+                [NSUserNotificationCenter.defaultUserNotificationCenter deliverNotification:notification];
             }
             
             if (self.isOutroTrackDefined) {

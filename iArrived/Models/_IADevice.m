@@ -17,6 +17,8 @@ const struct IADeviceAttributes IADeviceAttributes = {
 	.isResolved = @"isResolved",
 	.lastFoundDate = @"lastFoundDate",
 	.macAddress = @"macAddress",
+	.notificationWhenArrives = @"notificationWhenArrives",
+	.notificationWhenLeaves = @"notificationWhenLeaves",
 	.outroLastPlayedDate = @"outroLastPlayedDate",
 	.outroTrackArtist = @"outroTrackArtist",
 	.outroTrackName = @"outroTrackName",
@@ -75,6 +77,14 @@ const struct IADeviceFetchedProperties IADeviceFetchedProperties = {
 	}
 	if ([key isEqualToString:@"isResolvedValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"isResolved"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"notificationWhenArrivesValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"notificationWhenArrives"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"notificationWhenLeavesValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"notificationWhenLeaves"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 
@@ -265,6 +275,58 @@ const struct IADeviceFetchedProperties IADeviceFetchedProperties = {
 
 @dynamic macAddress;
 
+
+
+
+
+
+@dynamic notificationWhenArrives;
+
+
+
+- (BOOL)notificationWhenArrivesValue {
+	NSNumber *result = [self notificationWhenArrives];
+	return [result boolValue];
+}
+
+- (void)setNotificationWhenArrivesValue:(BOOL)value_ {
+	[self setNotificationWhenArrives:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveNotificationWhenArrivesValue {
+	NSNumber *result = [self primitiveNotificationWhenArrives];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveNotificationWhenArrivesValue:(BOOL)value_ {
+	[self setPrimitiveNotificationWhenArrives:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic notificationWhenLeaves;
+
+
+
+- (BOOL)notificationWhenLeavesValue {
+	NSNumber *result = [self notificationWhenLeaves];
+	return [result boolValue];
+}
+
+- (void)setNotificationWhenLeavesValue:(BOOL)value_ {
+	[self setNotificationWhenLeaves:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveNotificationWhenLeavesValue {
+	NSNumber *result = [self primitiveNotificationWhenLeaves];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveNotificationWhenLeavesValue:(BOOL)value_ {
+	[self setPrimitiveNotificationWhenLeaves:[NSNumber numberWithBool:value_]];
+}
 
 
 
