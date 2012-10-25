@@ -23,7 +23,7 @@
     
     if (self) {
         _browser = [[NSNetServiceBrowser alloc] init];
-        self.browser.delegate = self;
+        _browser.delegate = self;
     }
     
     return self;
@@ -59,7 +59,7 @@
     device.serviceType = netService.type;
     device.serviceDomain = netService.domain;
     device.macAddress = [IAUtilities macAddressFromServiceName:netService.name];
-    device.isFoundValue = YES;
+    device.isFound = @YES;
     
     [[NSManagedObjectContext defaultContext] save];
     
@@ -67,7 +67,7 @@
 }
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)netServiceBrowser didNotSearch:(NSDictionary *)errorInfo {
-    DLog(@"Did Not Search - Error code: %@, domain: %@", 
+    DLog(@"Did Not Search - Error code: %@, domain: %@",
           errorInfo[NSNetServicesErrorCode], 
           errorInfo[NSNetServicesErrorDomain]);
 }
@@ -83,8 +83,8 @@
                                inDomain:netService.domain 
                                withName:netService.name];
     if (device) {
-        device.isFoundValue = NO;
-        device.isResolvedValue = NO;
+        device.isFound = @NO;
+        device.isResolved = @NO;
     }
 }
 

@@ -20,15 +20,15 @@
 - (void)awakeFromInsert {
     // always initialize these to false - not through setters as this plays intro/outro
     [self willChangeValueForKey:IADeviceAttributes.isFound];
-    [self setPrimitiveIsFoundValue:NO];
+    [self setPrimitiveIsFound:@NO];
     [self didChangeValueForKey:IADeviceAttributes.isFound];
     
     [self willChangeValueForKey:IADeviceAttributes.isResolved];
-    [self setPrimitiveIsResolvedValue:NO];
+    [self setPrimitiveIsResolved:@NO];
     [self didChangeValueForKey:IADeviceAttributes.isResolved];
     
     [self willChangeValueForKey:IATreeMemberAttributes.isLeaf];
-    [self setPrimitiveIsLeafValue:YES];
+    [self setPrimitiveIsLeaf:@YES];
     [self didChangeValueForKey:IATreeMemberAttributes.isLeaf];
 }
 
@@ -39,11 +39,11 @@
 }
 
 - (BOOL)isIntroTrackDefined {
-    return (self.introTrackName != nil && ![self.introTrackName isEqualToString:@""]) ? YES : NO;
+    return (self.introTrackName != nil && ![self.introTrackName isEqualToString:@""]);
 }
 
 - (BOOL)isOutroTrackDefined {
-    return (self.outroTrackName != nil && ![self.outroTrackName isEqualToString:@""]) ? YES : NO;
+    return (self.outroTrackName != nil && ![self.outroTrackName isEqualToString:@""]);
 }
 
 - (NSString *)displayName {
@@ -81,36 +81,36 @@
     [self didChangeValueForKey:IATreeMemberAttributes.displayName];
 }
 
-- (void)setIsFoundValue:(BOOL)isFound {
+- (void)setIsFound:(NSNumber *)isFound {
     [self willChangeValueForKey:IADeviceAttributes.isFound];
-    [self setPrimitiveIsFoundValue:isFound];
+    [self setPrimitiveIsFound:isFound];
     [self didChangeValueForKey:IADeviceAttributes.isFound];
     
     NSDictionary *contextDictionary = @{@"serviceName": self.serviceName,
-                                       @"serviceType": self.serviceType,
-                                       @"serviceDomain": self.serviceDomain};
+    @"serviceType": self.serviceType,
+    @"serviceDomain": self.serviceDomain};
     
-    if (isFound) {
+    if (isFound.boolValue) {
         [[IAGroup foundDevicesGroup] addChildrenObject:self];
         [[IAGroup notFoundDevicesGroup] removeChildrenObject:self];
-        NSNotification *moveNotification = [NSNotification notificationWithName:@"DeviceDidMoveGroup" 
-                                                                         object:self 
-                                                                       userInfo:@{@"NewGroupKey": @"FOUND", 
-                                                                                 @"OldGroupKey": @"NOT FOUND"}];
+        NSNotification *moveNotification = [NSNotification notificationWithName:@"DeviceDidMoveGroup"
+                                                                         object:self
+                                                                       userInfo:@{@"NewGroupKey": @"FOUND",
+                                            @"OldGroupKey": @"NOT FOUND"}];
         [[NSNotificationCenter defaultCenter] postNotification:moveNotification];
         
         self.lastFoundDate = [NSDate date];
         
-        if (self.isFollowed) {
-            if (self.growlWhenArrives) {
+        if (self.isFollowedValue) {
+            if (self.growlWhenArrivesValue) {
                 NSString *deviceName = self.displayName ? self.displayName : self.serviceName;
                 
                 [GrowlApplicationBridge notifyWithTitle:@"Device Arrived"
                                             description:[NSString stringWithFormat:@"%@ was found on the network", deviceName]
-                                       notificationName:@"deviceWasFound" 
-                                               iconData:nil 
-                                               priority:0 
-                                               isSticky:NO 
+                                       notificationName:@"deviceWasFound"
+                                               iconData:nil
+                                               priority:0
+                                               isSticky:NO
                                            clickContext:contextDictionary];
             }
             
@@ -133,22 +133,22 @@
         // "unfound"
         [[IAGroup foundDevicesGroup] removeChildrenObject:self];
         [[IAGroup notFoundDevicesGroup] addChildrenObject:self];
-        NSNotification *moveNotification = [NSNotification notificationWithName:@"DeviceDidMoveGroup" 
-                                                                         object:self 
-                                                                       userInfo:@{@"NewGroupKey": @"NOT FOUND", 
-                                                                                 @"OldGroupKey": @"FOUND"}];
+        NSNotification *moveNotification = [NSNotification notificationWithName:@"DeviceDidMoveGroup"
+                                                                         object:self
+                                                                       userInfo:@{@"NewGroupKey": @"NOT FOUND",
+                                            @"OldGroupKey": @"FOUND"}];
         [[NSNotificationCenter defaultCenter] postNotification:moveNotification];
         
-        if (self.isFollowed) {
-            if (self.growlWhenLeaves) {
+        if (self.isFollowedValue) {
+            if (self.growlWhenLeavesValue) {
                 NSString *deviceName = self.displayName ? self.displayName : self.serviceName;
                 
                 [GrowlApplicationBridge notifyWithTitle:@"Device Left"
                                             description:[NSString stringWithFormat:@"%@ left the network", deviceName]
-                                       notificationName:@"deviceWasUnfound" 
-                                               iconData:nil 
-                                               priority:0 
-                                               isSticky:NO 
+                                       notificationName:@"deviceWasUnfound"
+                                               iconData:nil
+                                               priority:0
+                                               isSticky:NO
                                            clickContext:contextDictionary];
             }
             
@@ -174,7 +174,7 @@
 - (void)netServiceDidResolveAddress:(NSNetService *)sender {
     DLog(@"DID RESOLVE %@", sender);
     
-    self.isResolvedValue = YES;
+    self.isResolved = @YES;
     
     for (NSData *socketData in [sender addresses]) {
         if (socketData.isIPv4Address) {
@@ -196,7 +196,7 @@
          errorDict[NSNetServicesErrorCode], 
          errorDict[NSNetServicesErrorDomain]);
     
-    self.isResolvedValue = NO;
+    self.isResolved = @NO;
     
     //    self.netService.delegate = nil;
     //    self.netService = nil;

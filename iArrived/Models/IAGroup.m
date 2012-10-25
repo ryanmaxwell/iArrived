@@ -61,7 +61,7 @@
     [self didChangeValueForKey:IAGroupAttributes.groupType];
     
     [self willChangeValueForKey:IATreeMemberAttributes.displayName];
-    [self setPrimitiveDisplayName:[[self class] displayNameForGroupType:[groupType intValue]]];
+    [self setPrimitiveDisplayName:[[self class] displayNameForGroupType:[groupType integerValue]]];
     [self didChangeValueForKey:IATreeMemberAttributes.displayName];
 }
 
