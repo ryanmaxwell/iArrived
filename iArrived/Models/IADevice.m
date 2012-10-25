@@ -151,7 +151,7 @@
         
         if (self.isFollowedValue) {
             NSString *notificationTitle = @"Device Left";
-            NSString *notificationText = [NSString stringWithFormat:@"%@ was found on the network", self.displayName];
+            NSString *notificationText = [NSString stringWithFormat:@"%@ left the network", self.displayName];
             
             if (self.growlWhenLeavesValue) {
                 [GrowlApplicationBridge notifyWithTitle:notificationTitle
