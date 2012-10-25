@@ -2,16 +2,10 @@
 
 @implementation IAGroup
 
-- (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context {
-    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
-    
-    if (self) {
-        [self willChangeValueForKey:IATreeMemberAttributes.isLeaf];
-        [self setPrimitiveIsLeafValue:NO];
-        [self didChangeValueForKey:IATreeMemberAttributes.isLeaf];
-    }
-    
-    return self;
+- (void)awakeFromInsert {
+    [self willChangeValueForKey:IATreeMemberAttributes.isLeaf];
+    [self setPrimitiveIsLeafValue:NO];
+    [self didChangeValueForKey:IATreeMemberAttributes.isLeaf];
 }
 
 + (NSString *)displayNameForGroupType:(IAGroupType)groupType {

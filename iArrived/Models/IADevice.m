@@ -17,25 +17,19 @@
     return [IADevice findFirstWithPredicate:predicate];
 }
 
-- (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context {
-    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
+- (void)awakeFromInsert {
+    // always initialize these to false - not through setters as this plays intro/outro
+    [self willChangeValueForKey:IADeviceAttributes.isFound];
+    [self setPrimitiveIsFoundValue:NO];
+    [self didChangeValueForKey:IADeviceAttributes.isFound];
     
-    if (self) {
-        // always initialize these to false - not through setters as this plays intro/outro
-        [self willChangeValueForKey:IADeviceAttributes.isFound];
-        [self setPrimitiveIsFoundValue:NO];
-        [self didChangeValueForKey:IADeviceAttributes.isFound];
-        
-        [self willChangeValueForKey:IADeviceAttributes.isResolved];
-        [self setPrimitiveIsResolvedValue:NO];
-        [self didChangeValueForKey:IADeviceAttributes.isResolved];
-        
-        [self willChangeValueForKey:IATreeMemberAttributes.isLeaf];
-        [self setPrimitiveIsLeafValue:YES];
-        [self didChangeValueForKey:IATreeMemberAttributes.isLeaf];
-    }
+    [self willChangeValueForKey:IADeviceAttributes.isResolved];
+    [self setPrimitiveIsResolvedValue:NO];
+    [self didChangeValueForKey:IADeviceAttributes.isResolved];
     
-    return self;
+    [self willChangeValueForKey:IATreeMemberAttributes.isLeaf];
+    [self setPrimitiveIsLeafValue:YES];
+    [self didChangeValueForKey:IATreeMemberAttributes.isLeaf];
 }
 
 #pragma mark - Getters

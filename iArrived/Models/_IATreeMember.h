@@ -2,7 +2,7 @@
 // Make changes to IATreeMember.h instead.
 
 #import <CoreData/CoreData.h>
-#import "IAManagedObject.h"
+
 
 extern const struct IATreeMemberAttributes {
 	__unsafe_unretained NSString *displayName;
@@ -26,7 +26,7 @@ extern const struct IATreeMemberFetchedProperties {
 @interface IATreeMemberID : NSManagedObjectID {}
 @end
 
-@interface _IATreeMember : IAManagedObject {}
+@interface _IATreeMember : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;

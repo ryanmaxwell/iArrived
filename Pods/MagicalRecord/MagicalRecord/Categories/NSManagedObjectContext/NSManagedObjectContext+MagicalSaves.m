@@ -29,18 +29,20 @@
     }
     
     MRLog(@"-> Saving %@", [self MR_description]);
-
-    NSError *error = nil;
-	BOOL saved = NO;
+    
+    __block NSError *error = nil;
+	__block BOOL saved = NO;
 	@try
 	{
-        saved = [self save:&error];
+        [self performBlockAndWait:^{
+            saved = [self save:&error];
+        }];
 	}
 	@catch (NSException *exception)
 	{
 		MRLog(@"Unable to perform save: %@", (id)[exception userInfo] ?: (id)[exception reason]);
 	}
-	@finally 
+	@finally
     {
         if (!saved)
         {
@@ -63,27 +65,43 @@
 
 - (void) MR_saveNestedContextsErrorHandler:(void (^)(NSError *))errorCallback;
 {
-    [self performBlockAndWait:^{
+    [self MR_saveNestedContextsErrorHandler:nil completion:nil];
+}
+
+- (void) MR_saveNestedContextsErrorHandler:(void (^)(NSError *))errorCallback completion:(void (^)(void))completion;
+{
+    [self performBlock:^{
         [self MR_saveWithErrorCallback:errorCallback];
+        if (self.parentContext) {
+            [[self parentContext] performBlock:^{
+                [[self parentContext] MR_saveNestedContextsErrorHandler:errorCallback completion:completion];
+            }];
+        } else {
+            if (completion) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion();
+                });
+            }
+        }
     }];
-    [[self parentContext] MR_saveNestedContextsErrorHandler:errorCallback];
 }
 
 - (void) MR_save;
 {
-    [self MR_saveErrorHandler:nil];    
+    [self MR_saveErrorHandler:nil];
 }
 
 - (void) MR_saveErrorHandler:(void (^)(NSError *))errorCallback;
 {
     [self performBlockAndWait:^{
         [self MR_saveWithErrorCallback:errorCallback];
+
+		if (self.parentContext) {
+            [[self parentContext] performBlockAndWait:^{
+                [[self parentContext] MR_saveErrorHandler:errorCallback];
+            }];
+        }
     }];
-    
-    if (self == [[self class] MR_defaultContext])
-    {
-        [[[self class] MR_rootSavingContext] MR_saveInBackgroundErrorHandler:errorCallback];
-    }
 }
 
 - (void) MR_saveInBackgroundCompletion:(void (^)(void))completion;
@@ -91,21 +109,30 @@
     [self MR_saveInBackgroundErrorHandler:nil completion:completion];
 }
 
-- (void) MR_saveInBackgroundErrorHandler:(void (^)(NSError *))errorCallback completion:(void (^)(void))completion;
-{
-    [self performBlock:^{
-        [self MR_saveWithErrorCallback:errorCallback];
-    
-        if (completion) 
-        {
-            completion();
-        }
-    }];
-}
-
 - (void) MR_saveInBackgroundErrorHandler:(void (^)(NSError *))errorCallback;
 {
     [self MR_saveInBackgroundErrorHandler:errorCallback completion:nil];
 }
 
+- (void) MR_saveInBackgroundErrorHandler:(void (^)(NSError *))errorCallback completion:(void (^)(void))completion;
+{
+    [self performBlock:^{
+        // Save the context
+        [self MR_saveWithErrorCallback:errorCallback];
+        
+        // If we're the default context, save to disk too (the user expects it to persist)
+        if (self == [[self class] MR_defaultContext])
+        {
+            [[[self class] MR_rootSavingContext] MR_saveInBackgroundErrorHandler:errorCallback completion:completion];
+        }
+        else
+        {
+            // If we are not the default context (And therefore need to save the root context, do the completion action if one was specified
+            if (completion)
+            {
+                dispatch_async(dispatch_get_main_queue(), completion);
+            }
+        }
+    }];
+}
 @end

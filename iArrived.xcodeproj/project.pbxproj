@@ -45,7 +45,6 @@
 		94EDEEE414BB16DF00EBC453 /* IAMouseDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EDEEE314BB16DF00EBC453 /* IAMouseDownTextField.m */; };
 		94F2EBF514C82D7B003653CD /* IADevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F2EBF214C82D7B003653CD /* IADevice.m */; };
 		94F2EBF614C82D7B003653CD /* IAGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F2EBF414C82D7B003653CD /* IAGroup.m */; };
-		94F2EBF914C82DAD003653CD /* IAManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F2EBF814C82DAD003653CD /* IAManagedObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -126,8 +125,6 @@
 		94F2EBF214C82D7B003653CD /* IADevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IADevice.m; sourceTree = "<group>"; };
 		94F2EBF314C82D7B003653CD /* IAGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAGroup.h; sourceTree = "<group>"; };
 		94F2EBF414C82D7B003653CD /* IAGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAGroup.m; sourceTree = "<group>"; };
-		94F2EBF714C82DAD003653CD /* IAManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAManagedObject.h; sourceTree = "<group>"; };
-		94F2EBF814C82DAD003653CD /* IAManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAManagedObject.m; sourceTree = "<group>"; };
 		F4797EDE8F0345D0BE7CCA12 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -199,8 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				94DD24FB14CA41430084DAA6 /* iArrived.xcdatamodeld */,
-				94F2EBF714C82DAD003653CD /* IAManagedObject.h */,
-				94F2EBF814C82DAD003653CD /* IAManagedObject.m */,
 				94F2EBEC14C82AA3003653CD /* Generated Base Classes */,
 				94F2EBEE14C82AC7003653CD /* Custom Sub Classes */,
 			);
@@ -420,7 +415,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "curVer=`/usr/libexec/PlistBuddy \"iArrived/Models/iArrived.xcdatamodeld/.xccurrentversion\" -c 'print _XCCurrentVersionName'`\n\n/usr/local/bin/mogenerator --model \"iArrived/Models/iArrived.xcdatamodeld/$curVer\" --output-dir \"iArrived/Models/\" --base-class IAManagedObject --template-var arc=true";
+			shellScript = "curVer=`/usr/libexec/PlistBuddy \"iArrived/Models/iArrived.xcdatamodeld/.xccurrentversion\" -c 'print _XCCurrentVersionName'`\n\n# Homebrew mogenerator\n/usr/local/bin/mogenerator --model \"iArrived/Models/iArrived.xcdatamodeld/$curVer\" --output-dir \"iArrived/Models/\" --template-var arc=true";
 		};
 		97D5F973C5A5448BBB38CFA6 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -461,7 +456,6 @@
 				949DE2CA14C02EEC00A3F839 /* LaunchAtLoginController.m in Sources */,
 				94F2EBF514C82D7B003653CD /* IADevice.m in Sources */,
 				94F2EBF614C82D7B003653CD /* IAGroup.m in Sources */,
-				94F2EBF914C82DAD003653CD /* IAManagedObject.m in Sources */,
 				94CCDC1714CA34820068E14F /* IATreeMember.m in Sources */,
 				94DD24FD14CA41430084DAA6 /* iArrived.xcdatamodeld in Sources */,
 				94BB519614DF77F00027BB71 /* _IADevice.m in Sources */,

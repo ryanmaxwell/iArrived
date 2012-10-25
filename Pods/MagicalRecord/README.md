@@ -17,8 +17,27 @@ MagicalRecord was inspired by the ease of Ruby on Rails' Active Record fetching.
 
 1. In your XCode Project, drag the *MagicalRecord* folder (under the main folder) into your project. 
 2. Add *CoreData+MagicalRecord.h* file to your PCH file or your AppDelegate file.
-3. Optionally precees the *CoreData+MagicalRecord.h* import with `#define MR_SHORTHAND` to your PCH file if you want to use MagicalRecord methods without the *MR_prefix* like `findAll` instead of `MR_findAll`
+3. Optionally preceed the *CoreData+MagicalRecord.h* import with `#define MR_SHORTHAND` to your PCH file if you want to use MagicalRecord methods without the *MR_prefix* like `findAll` instead of `MR_findAll`
 4. Start writing code!
+
+# Requirements
+
+MagicalRecord Platform Requirements:
+
+* iOS5.0 and newer, or Mac OS 10.7 and newer
+* ARC
+
+An iOS4 compatible version is available for use. Reference [tag 1.8.3](https://github.com/magicalpanda/MagicalRecord/tree/1.8.3).
+
+## Updating to 2.0
+
+MagicalRecord 2.0 is considered a major update since there were some class and API refactorings that will effect previous installations of MagicalRecord in your code. The most straight forward change is that *MagicalRecordHelpers* and *MRCoreDataAction* have both been replaced with a single class, *MagicalRecord*.
+
+## ARC Support
+
+MagicalRecord fully supports ARC out of the box, there is no configuration necessary. 
+The last version to support manually managed memory is 1.8.3, and is available from the downloads page, or by switching to the 1.8.3 tag in the source.
+
 
 # Notes
 ## Third Party Blog Entries
@@ -33,14 +52,6 @@ The following blog entries highlight how to install and use aspects of Magical R
 ## Twitter 
 Follow [@MagicalRecord](http://twitter.com/magicalrecord) on twitter to stay up to date on twitter with the lastest updates to MagicalRecord and for basic support
 
-## Updating to 2.0
-
-MagicalRecord 2.0 is considered a major update since there were some class and API refactorings that will effect previous installations of MagicalRecord in your code. The most straight forward change is that *MagicalRecordHelpers* and *MRCoreDataAction* have both been replaced with a single class, *MagicalRecord*.
-
-## ARC Support
-
-MagicalRecord fully supports ARC out of the box, there is no configuration necessary. 
-The last version to support manually managed memory is 1.8.3, and is available from the downloads page, or by switching to the 1.8.3 tag in the source.
 
 ## Nested Contexts
 
@@ -70,7 +81,9 @@ Next, somewhere in your app delegate, in either the applicationDidFinishLaunchin
 
 Each call instantiates one of each piece of the Core Data stack, and provides getter and setter methods for these instances. These well known instances to MagicalRecord, and are recognized as "defaults".
 
-And, before your app exits, you can use the clean up method:
+When using the default sqlite data store with the DEBUG flag set, if you change your model without creating a new model version, Magical Record will delete the old store and create a new one automatically. No more uninstall/reinstall every time you make a change!
+
+And finally, before your app exits, you can use the clean up method:
 
 	[MagicalRecord cleanUp];
 	
@@ -119,7 +132,7 @@ MagicalRecord also has a helper method to hold on to a Managed Object Context in
 Most methods in MagicalRecord return an NSArray of results. So, if you have an Entity called Person, related to a Department (as seen in various Apple Core Data documentation), to get all the Person entities from your Persistent Store:
 
 	//In order for this to work you need to add "#define MR_SHORTHAND" to your PCH file
-	NSArray *people = [Person MR_findAll];
+	NSArray *people = [Person findAll];
 
 	// Otherwise you can use the longer, namespaced version
 	NSArray *people = [Person MR_findAll];
