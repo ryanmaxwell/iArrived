@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="IADevice" representedClassName="IADevice" parentEntity="IATreeMember" syncable="YES">
-        <attribute name="growlWhenArrives" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
-        <attribute name="growlWhenLeaves" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="growlWhenArrives" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="growlWhenLeaves" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="hostName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="introLastPlayedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="introTrackArtist" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,8 +14,8 @@
         <attribute name="isResolved" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastFoundDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="macAddress" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="notificationWhenArrives" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="notificationWhenLeaves" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="notificationWhenArrives" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="notificationWhenLeaves" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="outroLastPlayedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="outroTrackArtist" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="outroTrackName" optional="YES" attributeType="String" syncable="YES"/>
