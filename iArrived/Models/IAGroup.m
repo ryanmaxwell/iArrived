@@ -4,7 +4,7 @@
 
 - (void)awakeFromInsert {
     [self willChangeValueForKey:IATreeMemberAttributes.isLeaf];
-    [self setPrimitiveIsLeafValue:NO];
+    [self setPrimitiveIsLeaf:@NO];
     [self didChangeValueForKey:IATreeMemberAttributes.isLeaf];
 }
 

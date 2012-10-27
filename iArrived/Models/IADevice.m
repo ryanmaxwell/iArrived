@@ -18,6 +18,12 @@
 }
 
 - (void)awakeFromInsert {
+    [self willChangeValueForKey:IATreeMemberAttributes.isLeaf];
+    [self setPrimitiveIsLeaf:@YES];
+    [self didChangeValueForKey:IATreeMemberAttributes.isLeaf];
+}
+
+- (void)awakeFromFetch {
     // always initialize these to false - not through setters as this plays intro/outro
     [self willChangeValueForKey:IADeviceAttributes.isFound];
     [self setPrimitiveIsFound:@NO];
@@ -26,10 +32,6 @@
     [self willChangeValueForKey:IADeviceAttributes.isResolved];
     [self setPrimitiveIsResolved:@NO];
     [self didChangeValueForKey:IADeviceAttributes.isResolved];
-    
-    [self willChangeValueForKey:IATreeMemberAttributes.isLeaf];
-    [self setPrimitiveIsLeaf:@YES];
-    [self didChangeValueForKey:IATreeMemberAttributes.isLeaf];
 }
 
 #pragma mark - Getters
@@ -92,7 +94,7 @@
     @"serviceDomain": self.serviceDomain
     };
     
-    if (isFound.boolValue) {
+    if (isFound.boolValue == YES) {
         [[IAGroup foundDevicesGroup] addChildrenObject:self];
         [[IAGroup notFoundDevicesGroup] removeChildrenObject:self];
         NSNotification *moveNotification = [NSNotification notificationWithName:@"DeviceDidMoveGroup"
