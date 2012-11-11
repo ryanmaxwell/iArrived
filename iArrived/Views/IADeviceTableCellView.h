@@ -7,11 +7,11 @@
 //
 
 #import <AppKit/AppKit.h>
-#import "IAMouseDownTextField.h"
+#import "RMMouseDownTextField.h"
 
-@interface IADeviceTableCellView : NSTableCellView  <IAMouseDownTextFieldDelegate>
+@interface IADeviceTableCellView : NSTableCellView  <RMMouseDownTextFieldDelegate>
 
-@property (nonatomic, weak) IBOutlet IAMouseDownTextField *detailTextField;
+@property (nonatomic, weak) IBOutlet RMMouseDownTextField *detailTextField;
 
 - (IBAction)infoPressed:(id)sender;
 

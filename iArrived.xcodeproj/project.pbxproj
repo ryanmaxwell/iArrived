@@ -42,7 +42,7 @@
 		94CCDC1714CA34820068E14F /* IATreeMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CCDC1614CA34820068E14F /* IATreeMember.m */; };
 		94DD24FD14CA41430084DAA6 /* iArrived.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94DD24FB14CA41430084DAA6 /* iArrived.xcdatamodeld */; };
 		94E0540614B85AC300AD6E5B /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 94E0540514B85AC300AD6E5B /* Growl Registration Ticket.growlRegDict */; };
-		94EDEEE414BB16DF00EBC453 /* IAMouseDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EDEEE314BB16DF00EBC453 /* IAMouseDownTextField.m */; };
+		94EDEEE414BB16DF00EBC453 /* RMMouseDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EDEEE314BB16DF00EBC453 /* RMMouseDownTextField.m */; };
 		94F2EBF514C82D7B003653CD /* IADevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F2EBF214C82D7B003653CD /* IADevice.m */; };
 		94F2EBF614C82D7B003653CD /* IAGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F2EBF414C82D7B003653CD /* IAGroup.m */; };
 /* End PBXBuildFile section */
@@ -119,8 +119,8 @@
 		94CCDC1614CA34820068E14F /* IATreeMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATreeMember.m; sourceTree = "<group>"; };
 		94DD24FC14CA41430084DAA6 /* iArrived.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iArrived.xcdatamodel; sourceTree = "<group>"; };
 		94E0540514B85AC300AD6E5B /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
-		94EDEEE214BB16DF00EBC453 /* IAMouseDownTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAMouseDownTextField.h; sourceTree = "<group>"; };
-		94EDEEE314BB16DF00EBC453 /* IAMouseDownTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAMouseDownTextField.m; sourceTree = "<group>"; };
+		94EDEEE214BB16DF00EBC453 /* RMMouseDownTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMouseDownTextField.h; sourceTree = "<group>"; };
+		94EDEEE314BB16DF00EBC453 /* RMMouseDownTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMouseDownTextField.m; sourceTree = "<group>"; };
 		94F2EBF114C82D7B003653CD /* IADevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IADevice.h; sourceTree = "<group>"; };
 		94F2EBF214C82D7B003653CD /* IADevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IADevice.m; sourceTree = "<group>"; };
 		94F2EBF314C82D7B003653CD /* IAGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAGroup.h; sourceTree = "<group>"; };
@@ -235,8 +235,8 @@
 				94ADFA2914B2E5AB00A6F5B3 /* Value Transformers */,
 				943AAC5914B2BAF500FED017 /* IAStatusItemView.h */,
 				943AAC5A14B2BAF500FED017 /* IAStatusItemView.m */,
-				94EDEEE214BB16DF00EBC453 /* IAMouseDownTextField.h */,
-				94EDEEE314BB16DF00EBC453 /* IAMouseDownTextField.m */,
+				94EDEEE214BB16DF00EBC453 /* RMMouseDownTextField.h */,
+				94EDEEE314BB16DF00EBC453 /* RMMouseDownTextField.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -452,7 +452,7 @@
 				9410AC9914BAD9EE00968C0D /* IADeviceTableCellView.m in Sources */,
 				9410AC9D14BAE10900968C0D /* IADeviceTableView.m in Sources */,
 				9410ACA114BAEB5400968C0D /* LastFoundValueTransformer.m in Sources */,
-				94EDEEE414BB16DF00EBC453 /* IAMouseDownTextField.m in Sources */,
+				94EDEEE414BB16DF00EBC453 /* RMMouseDownTextField.m in Sources */,
 				949DE2CA14C02EEC00A3F839 /* LaunchAtLoginController.m in Sources */,
 				94F2EBF514C82D7B003653CD /* IADevice.m in Sources */,
 				94F2EBF614C82D7B003653CD /* IAGroup.m in Sources */,
