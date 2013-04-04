@@ -66,6 +66,10 @@
 
 #pragma mark - IBActions
 
+- (IBAction)quitButtonPressed:(id)sender {
+    [NSApplication.sharedApplication terminate:self];
+}
+
 - (IBAction)preferencesButtonPressed:(id)sender {
     IAAppDelegate *appDelegate = (IAAppDelegate *) NSApplication.sharedApplication.delegate;
     [appDelegate toggleSettingsWindow];

@@ -14,5 +14,6 @@
 @property (nonatomic, weak) IBOutlet NSTableView *tableView;
 @property (nonatomic, weak) IBOutlet NSTextField *headerTextField;
 
+- (IBAction)quitButtonPressed:(id)sender;
 - (IBAction)preferencesButtonPressed:(id)sender;
 @end
