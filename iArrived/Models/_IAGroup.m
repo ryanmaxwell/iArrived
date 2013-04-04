@@ -36,12 +36,13 @@ const struct IAGroupFetchedProperties IAGroupFetchedProperties = {
 	return (IAGroupID*)[super objectID];
 }
 
-+ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
++ (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
 	if ([key isEqualToString:@"groupTypeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"groupType"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 
 	return keyPaths;

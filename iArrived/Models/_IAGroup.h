@@ -29,7 +29,9 @@ extern const struct IAGroupFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* groupType;
+
 
 
 @property int32_t groupTypeValue;

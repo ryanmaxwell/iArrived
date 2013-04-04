@@ -39,12 +39,13 @@ const struct IATreeMemberFetchedProperties IATreeMemberFetchedProperties = {
 	return (IATreeMemberID*)[super objectID];
 }
 
-+ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
++ (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
 	if ([key isEqualToString:@"isLeafValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"isLeaf"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 
 	return keyPaths;

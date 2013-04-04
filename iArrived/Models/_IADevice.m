@@ -56,36 +56,43 @@ const struct IADeviceFetchedProperties IADeviceFetchedProperties = {
 	return (IADeviceID*)[super objectID];
 }
 
-+ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
++ (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
 	if ([key isEqualToString:@"growlWhenArrivesValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"growlWhenArrives"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"growlWhenLeavesValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"growlWhenLeaves"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"isFollowedValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"isFollowed"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"isFoundValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"isFound"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"isResolvedValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"isResolved"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"notificationWhenArrivesValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"notificationWhenArrives"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"notificationWhenLeavesValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"notificationWhenLeaves"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 
 	return keyPaths;

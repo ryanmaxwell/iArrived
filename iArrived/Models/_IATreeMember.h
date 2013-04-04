@@ -35,7 +35,9 @@ extern const struct IATreeMemberFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* displayName;
+
 
 
 //- (BOOL)validateDisplayName:(id*)value_ error:(NSError**)error_;
@@ -43,7 +45,9 @@ extern const struct IATreeMemberFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* isLeaf;
+
 
 
 @property BOOL isLeafValue;
@@ -56,14 +60,14 @@ extern const struct IATreeMemberFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet* children;
+@property (nonatomic, strong) NSSet *children;
 
 - (NSMutableSet*)childrenSet;
 
 
 
 
-@property (nonatomic, strong) NSSet* parents;
+@property (nonatomic, strong) NSSet *parents;
 
 - (NSMutableSet*)parentsSet;
 

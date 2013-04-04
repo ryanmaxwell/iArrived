@@ -69,7 +69,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* growlWhenArrives;
+
 
 
 @property BOOL growlWhenArrivesValue;
@@ -81,7 +83,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* growlWhenLeaves;
+
 
 
 @property BOOL growlWhenLeavesValue;
@@ -93,7 +97,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* hostName;
+
 
 
 //- (BOOL)validateHostName:(id*)value_ error:(NSError**)error_;
@@ -101,7 +107,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSDate* introLastPlayedDate;
+
 
 
 //- (BOOL)validateIntroLastPlayedDate:(id*)value_ error:(NSError**)error_;
@@ -109,7 +117,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* introTrackArtist;
+
 
 
 //- (BOOL)validateIntroTrackArtist:(id*)value_ error:(NSError**)error_;
@@ -117,7 +127,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* introTrackName;
+
 
 
 //- (BOOL)validateIntroTrackName:(id*)value_ error:(NSError**)error_;
@@ -125,7 +137,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* ipv4Address;
+
 
 
 //- (BOOL)validateIpv4Address:(id*)value_ error:(NSError**)error_;
@@ -133,7 +147,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* ipv6Address;
+
 
 
 //- (BOOL)validateIpv6Address:(id*)value_ error:(NSError**)error_;
@@ -141,7 +157,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* isFollowed;
+
 
 
 @property BOOL isFollowedValue;
@@ -153,7 +171,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* isFound;
+
 
 
 @property BOOL isFoundValue;
@@ -165,7 +185,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* isResolved;
+
 
 
 @property BOOL isResolvedValue;
@@ -177,7 +199,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSDate* lastFoundDate;
+
 
 
 //- (BOOL)validateLastFoundDate:(id*)value_ error:(NSError**)error_;
@@ -185,7 +209,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* macAddress;
+
 
 
 //- (BOOL)validateMacAddress:(id*)value_ error:(NSError**)error_;
@@ -193,7 +219,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* notificationWhenArrives;
+
 
 
 @property BOOL notificationWhenArrivesValue;
@@ -205,7 +233,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* notificationWhenLeaves;
+
 
 
 @property BOOL notificationWhenLeavesValue;
@@ -217,7 +247,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSDate* outroLastPlayedDate;
+
 
 
 //- (BOOL)validateOutroLastPlayedDate:(id*)value_ error:(NSError**)error_;
@@ -225,7 +257,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* outroTrackArtist;
+
 
 
 //- (BOOL)validateOutroTrackArtist:(id*)value_ error:(NSError**)error_;
@@ -233,7 +267,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* outroTrackName;
+
 
 
 //- (BOOL)validateOutroTrackName:(id*)value_ error:(NSError**)error_;
@@ -241,7 +277,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* serviceDomain;
+
 
 
 //- (BOOL)validateServiceDomain:(id*)value_ error:(NSError**)error_;
@@ -249,7 +287,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* serviceName;
+
 
 
 //- (BOOL)validateServiceName:(id*)value_ error:(NSError**)error_;
@@ -257,7 +297,9 @@ extern const struct IADeviceFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* serviceType;
+
 
 
 //- (BOOL)validateServiceType:(id*)value_ error:(NSError**)error_;
